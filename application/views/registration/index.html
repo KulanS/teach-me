@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TeachMe | Register</title>
+
+
+
+  <link href="<?php echo base_url() ?>assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+  <link href="<?php echo base_url() ?>assets/admin/css/sb-admin.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+</head>
+
+<body class="bg-white">
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">
+        <h5>Create An Account</h5>
+      </div>
+      <div class="card-body">
+        <form id="form" name="registration" class="needs-validation">
+
+          <div class="alert alert-dismissible fade show" role="alert" id="response-alert">
+            <div class="alert-text">
+
+            </div>
+            <!-- <strong>Holy guacamole!</strong> You should check in on some of those fields below. -->
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="response-alert-button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="firstName" class="form-control" placeholder="First name">
+                  <label for="firstName">First name</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="lastName" class="form-control" placeholder="Last name">
+                  <label for="lastName">Last name</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" id="nic" class="form-control" placeholder="NIC number">
+              <label for="nic">NIC number</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="phone" id="phone" class="form-control" placeholder="Personal phone number">
+              <label for="phone">Personal phone number</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" id="qualifications" class="form-control" placeholder="Educational qualificatios">
+              <label for="qualifications">Educational qualificatios</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" id="email" class="form-control" placeholder="Email address">
+              <label for="email">Email address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="password" id="password" class="form-control" placeholder="Password">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password">
+                  <label for="confirmPassword">Confirm password</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="langOpt[]" id="selectMediumGroup">Select Medium</label>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btMedium">Click to get</button>
+                <select class="form-control" name="langOpt[]" multiple title="Choose from here" id="selectMedium">
+                </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="langOpt[]" id="selectGradeGroup">Select Grade</label>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btGrade">Click to get</button>
+                <select class="form-control" name="langOpt[]" multiple title="Choose from here" id="selectGrade">
+                </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="langOpt" id="selectSubjectGroup">Select Subject</label>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btSubject">Click to get</button>
+                <select class="form-control" name="langOpt[]" multiple title="Choose from here" id="selectSubject">
+                </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="langOpt[]" id="selectDistrictGroup">Select District</label>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btDistrict">Click to get</button>
+                <select class="form-control" name="langOpt[]" multiple title="Choose from here" id="selectDistrict">
+                </select>
+              </div>
+          </div>
+
+
+          <button id="nnn" class="btn btn-primary btn-block" href="#" type="submit">Register</button>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="<?php echo base_url() ?>login">Login</a>
+          <a class="d-block small" href="<?php echo base_url() ?>">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  $("#response-alert").removeClass("hide").hide();var x=document.cookie,posname=x.search("csrf_cookie_name"),hash=x.slice(posname+17,posname+49);function clearData(){$("#firstName").val(""),$("#lastName").val(""),$("#nic").val(""),$("#phone").val(""),$("#qualifications").val(""),$("#email").val(""),$("#password").val(""),$("#confirmPassword").val(""),$("#selectMedium").empty(),$("#selectGrade").empty(),$("#selectSubject").empty(),$("#selectDistrict").empty(),$("#selectSubject").empty(),$("select").selectpicker("refresh")}$("select").selectpicker(),$("#btMedium").click(function(){$.ajax({type:"GET",dataType:"json",url:"<?php echo base_url('registration/get_medium_list') ?>",success:function(e){$("#selectMedium").empty(),jQuery(e).each(function(e,t){$("#selectMedium").append($("<option></option>").attr("value",t.mediumid).text(t.mediumname))}),$("#selectMedium").selectpicker("refresh")}})}),$("#btGrade").click(function(){$.ajax({type:"GET",dataType:"json",url:"<?php echo base_url('registration/get_audience_list') ?>",success:function(e){$("#selectGrade").empty(),jQuery(e).each(function(e,t){$("#selectGrade").append($("<option></option>").attr("value",t.audienceid).text(t.audiencename))}),$("#selectGrade").selectpicker("refresh")}})}),$("#btSubject").click(function(){if(null==$("#selectGrade").val())alert("Please select a grade");else{$("#selectSubject").selectpicker("refresh"),$("#selectSubject").empty();var e={"<?php echo $this->security->get_csrf_token_name(); ?>":hash,audience_list:$("#selectGrade").val()};$.ajax({type:"POST",dataType:"json",url:"<?php echo base_url('registration/get_subject_list') ?>",data:e,success:function(e){jQuery(e).each(function(e,t){$("#selectSubject").append($("<option></option>").attr("value",t.subjectid).text(t.subjectname))}),$("#selectSubject").selectpicker("refresh")}})}}),$("#btDistrict").click(function(){$.ajax({type:"GET",dataType:"json",url:"<?php echo base_url('registration/get_district_list') ?>",success:function(e){$("#selectDistrict").selectpicker("refresh"),$("#selectDistrict").empty(),jQuery(e).each(function(e,t){$("#selectDistrict").append($("<option></option>").attr("value",t.districtid).text(t.districtname))}),$("#selectDistrict").selectpicker("refresh")}})}),$("#form").submit(function(e){e.preventDefault();var t=!0,s=$("#firstName").val().charAt(0).toUpperCase()+$("#firstName").val().slice(1),a=$("#lastName").val().charAt(0).toUpperCase()+$("#lastName").val().slice(1),r=$("#nic").val().toUpperCase(),l=$("#phone").val(),i=$("#qualifications").val(),c=$("#email").val(),o=$("#password").val(),n=$("#confirmPassword").val(),p=$("#selectMedium").val(),d=$("#selectGrade").val(),u=$("#selectSubject").val(),m=$("#selectDistrict").val();if($(".alert").alert(),setTimeout(function(){$(".alert").fadeOut("slow")},4e3),$(".validation").remove(),0==s.length&&($("#firstName").after('<span class="validation" style="color:red">*required</span>'),t=!1),0==a.length&&($("#lastName").after('<span class="validation" style="color:red">*required</span>'),t=!1),0==r.length&&($("#nic").after('<span class="validation" style="color:red">*required</span>'),t=!1),0==l.length&&($("#phone").after('<span class="validation" style="color:red">*required</span>'),t=!1),0==i.length&&($("#qualifications").after('<span class="validation" style="color:red">*required</span>'),t=!1),0==c.length&&($("#email").after('<span class="validation" style="color:red">*required</span>'),t=!1),0!=o.length?7<o.length?0!=n.length?o==n||($("#confirmPassword").after('<span class="validation" style="color:red">*password does not match</span>'),t=!1):($("#confirmPassword").after('<span class="validation" style="color:red">*required</span>'),t=!1):($("#password").after('<span class="validation" style="color:red">*required 8 or more chracters</span>'),t=!1):($("#password").after('<span class="validation" style="color:red">*required</span>'),t=!1),null==p&&($("#selectMediumGroup").after('<span class="validation" style="color:red">*required</span>'),t=!1),null==d&&($("#selectGradeGroup").after('<span class="validation" style="color:red">*required</span>'),t=!1),null==u&&($("#selectSubjectGroup").after('<span class="validation" style="color:red">*required</span>'),t=!1),null==m&&($("#selectDistrictGroup").after('<span class="validation" style="color:red">*required</span>'),t=!1),t){var h={"<?php echo $this->security->get_csrf_token_name(); ?>":hash,firstName:s,lastName:a,nic:r,phone:l,qualifications:i,email:c,password:o,mediumList:p,gradeList:d,subjectList:u,districtList:m};$.ajax({type:"POST",dataType:"json",url:"<?php echo base_url('registration/register_user') ?>",data:h,success:function(e){$("#response-alert").removeClass("alert-success"),$("#response-alert").removeClass("alert-danger"),"00"==e.responseCode?($("#response-alert").removeClass("hide").show(),$("#response-alert").addClass("alert-success"),$(".alert-text").empty(),$(".alert-text").append("<strong>OK!</strong> "+e.status)):($("#response-alert").removeClass("hide").show(),$("#response-alert").addClass("alert-danger"),$(".alert-text").empty(),$(".alert-text").append("<strong>Error!</strong> "+e.status)),clearData(),$("html, body").animate({scrollTop:0},"slow")}})}else $(".alert-text").empty(),$("#response-alert").removeClass("hide").show(),$("#response-alert").addClass("alert-danger"),$(".alert-text").append("<strong>Something Wrong!</strong> Check some fields below."),$("html, body").animate({scrollTop:0},"slow")});
+  </script>
+
+  <script src="<?php echo base_url() ?>assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="<?php echo base_url() ?>assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>

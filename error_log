@@ -1,0 +1,4 @@
+[20-Jun-2019 00:53:26 America/New_York] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/teachmel/public_html/application/views/registration/index.html on line 148
+[20-Jun-2019 00:55:19 America/New_York] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/teachmel/public_html/application/views/registration/index.html on line 148
+[20-Jun-2019 00:57:44 America/New_York] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/teachmel/public_html/application/views/registration/index.html on line 148
+[20-Jun-2019 01:01:48 America/New_York] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/teachmel/public_html/application/views/registration/index.html on line 148

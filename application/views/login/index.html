@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TeachMe | Login</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="<?php echo base_url(); ?>assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="<?php echo base_url(); ?>assets/admin/css/sb-admin.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+ 
+
+</head>
+
+<body class="bg-white">
+
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form id="form" class="needs-validation">
+		  <div class="alert alert-dismissible fade show" role="alert" id="response-alert">
+            <div class="alert-text">
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="response-alert-button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <label for="inputEmail">Email address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+              <label for="inputPassword">Password</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me">
+                Remember Password
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" href="#">Login</button>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="<?php echo base_url() ?>registration">Register an Account</a>
+          <a class="d-block small" href="<?php echo base_url(); ?>">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+	$('#response-alert').removeClass("hide").hide();
+    var x = document.cookie;
+    var posname = x.search('csrf_cookie_name');
+    var hash = x.slice(posname+17,posname+49);
+	
+	
+	$('#form').submit(function(e) {
+		e.preventDefault();
+		
+		$('.alert').alert();
+		setTimeout(function() {
+		$('.alert').fadeOut('slow');
+		}, 4000);
+		
+		var email = $('#inputEmail').val();
+		var password = $('#inputPassword').val();
+		
+		var request_data = {
+			'<?php echo $this->security->get_csrf_token_name(); ?>' : hash,
+			email : email,
+			password : password
+	    }
+		
+		$.ajax({
+			type : "POST",
+			dataType : 'json',
+			url : "<?php echo base_url('login/user_login') ?>",
+			data : request_data,
+			success : function(data) {
+				$('#response-alert').removeClass('alert-success');
+				$('#response-alert').removeClass('alert-danger');
+				if(data['responseCode'] != '00') {
+					$('#response-alert').removeClass("hide").show();
+					$('#response-alert').addClass('alert-danger');
+					$('.alert-text').empty();
+					$('.alert-text').append('<strong>Error!</strong> ' + data['status']);
+					clearData();
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+				}else {
+					$('#response-alert').removeClass("hide").show();
+					$('#response-alert').addClass('alert-success');
+					$('.alert-text').empty();
+					$('.alert-text').append('<strong>Success!</strong> ' + data['status']);
+					clearData();
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+					setTimeout(function() {
+						window.location.href = data['redirect_url'];
+					}, 2000);
+				}
+			}
+		});
+	});
+	
+	function clearData() {
+		$('#inputEmail').val('');
+		$('#inputPassword').val('');
+	};
+  </script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="<?php echo base_url(); ?>assets/admin/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="<?php echo base_url(); ?>assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>
